@@ -1,0 +1,44 @@
+.custom-navbar {
+  background: transparent !important;
+  padding: 1.5rem 2rem;
+}
+
+.brand {
+  color: white !important;
+  font-size: 1.4rem;
+  letter-spacing: 6px;
+  font-weight: 300;
+}
+
+.custom-toggle {
+  border: none !important;
+  box-shadow: none !important;
+}
+
+.custom-toggle .navbar-toggler-icon {
+  filter: invert(1);
+}
+
+.custom-offcanvas {
+  background-color: #111;
+  color: white;
+}
+
+.admin-info {
+  margin-top: 1rem;
+}
+
+.admin-info p {
+  color: #999;
+}
+
+.logout-btn {
+  width: 100%;
+  margin-top: 2rem;
+  padding: 0.8rem;
+
+  background: transparent;
+  color: white;
+
+  border: 1px solid white;
+}
