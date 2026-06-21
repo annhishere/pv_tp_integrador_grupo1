@@ -3,7 +3,7 @@ import Header from "./Header";
 // Importa estilos específicos del Dashboard.
 import "../styles/Dashboard.css";
 
-function Dashboard() {
+const Dashboard = () => {
   return (
     <>
       <Header />
@@ -17,7 +17,7 @@ function Dashboard() {
           playsInline
           className="hero-video"
         >
-          <source src="/video.mp4" type="video/mp4" />
+          <source src="src/assets/video/video.mp4" type="video/mp4" />
           Tu navegador no soporta video HTML5.
         </video>
         <div className="overlay"></div>
