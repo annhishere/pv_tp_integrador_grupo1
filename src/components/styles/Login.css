@@ -1,0 +1,62 @@
+.login-container {
+  min-height: 100vh;
+  background-color: #111;
+  color: white;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-form {
+  width: 100%;
+  max-width: 400px;
+  padding: 2rem;
+}
+
+.login-form h2 {
+  margin-bottom: 2rem;
+  font-weight: 300;
+  letter-spacing: 3px;
+}
+
+.login-field {
+  margin-bottom: 1.5rem;
+}
+
+.login-field label {
+  display: block;
+  margin-bottom: 0.5rem;
+  color: #999;
+}
+
+.login-field input,
+.login-field select {
+  width: 100%;
+  padding: 0.8rem;
+
+  background: transparent;
+  color: white;
+
+  border: 1px solid white;
+}
+
+.login-field option {
+  color: black;
+}
+
+.login-btn {
+  width: 100%;
+  padding: 0.8rem;
+
+  background: transparent;
+  color: white;
+
+  border: 1px solid white;
+  cursor: pointer;
+}
+
+.login-btn:hover {
+  background-color: white;
+  color: #111;
+}
