@@ -1,6 +1,7 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
+import { useAdmin } from "../../context/AdminContext";
 import { Navbar, Container, Offcanvas, Button } from "react-bootstrap";
-import { AdminContext } from "../../context/AdminContext";
+//import { AdminContext} from "../../context/AdminContext";
 
 import "../styles/Header.css";
 
@@ -10,7 +11,7 @@ const Header = () => {
   const [show, setShow] = useState(false);
 
   // Datos del administrador y función para cerrar sesión
-  const { admin, logout } = useContext(AdminContext);
+  const { admin, logout } = useAdmin();
   console.log("Admin:", admin);
 
   return (
