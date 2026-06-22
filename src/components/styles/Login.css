@@ -42,7 +42,7 @@
 }
 
 .login-field option {
-  color: black;
+  color: rgb(255, 255, 255);
 }
 
 .login-btn {
@@ -59,4 +59,11 @@
 .login-btn:hover {
   background-color: white;
   color: #111;
+}
+.login-error {
+  margin-bottom: 1rem;
+  padding: 0.8rem;
+
+  color: #ffb3b3;
+  border: 1px solid #ffb3b3;
 }

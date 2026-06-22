@@ -1,30 +1,39 @@
-import { useContext, useState } from "react";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { AdminContext } from "../context/AdminContext";
+import { useAdmin } from "../context/AdminContext";
 import "../components/styles/Login.css";
 
 const Login = () => {
   // Obtenemos la funcion login desde el contexto de administrador
-  const { login } = useContext(AdminContext);
+  const { login } = useAdmin();
 
-  // Hook de React Router para redirigir al usuario a otra ruta
+  // Hook de React Router para redirigir a otra pagina
   const navigate = useNavigate();
 
-  // Estado para guardar el nombre ingresado en el input
+  // Estado para guardar el nombre escrito en el input
   const [nombre, setNombre] = useState("");
 
-  // Estado para guardar el sector seleccionado en el menu desplegable
-  const [sector, setSector] = useState("Soporte");
+  // Estado para guardar el sector seleccionado
+  const [sector, setSector] = useState("");
 
-  // Funcion que se ejecuta cuando se envia el formulario
+  // Estado para mostrar mensajes de error en el formulario
+  const [error, setError] = useState("");
+
+  // Funcion que se ejecuta al enviar el formulario
   const handleSubmit = (e) => {
-    // Evita que el formulario recargue la pagina
+    // Evita que la pagina se recargue
     e.preventDefault();
 
-    // Guarda los datos del administrador en el contexto
-    login(nombre, sector);
+    // Validamos que los campos no esten vacios
+    if (!nombre.trim() || !sector) {
+      setError("Completa todos los campos");
+      return;
+    }
 
-    // Redirige al usuario a la pantalla principal
+    // Guardamos los datos del administrador en el contexto
+    login(nombre.trim(), sector);
+
+    // Redirigimos al usuario a la pagina principal
     navigate("/");
   };
 
@@ -32,7 +41,11 @@ const Login = () => {
     <div className="login-container">
       {/* Formulario de inicio de sesion */}
       <form className="login-form" onSubmit={handleSubmit}>
-        <h2>Login de Administrador</h2>
+        <h2>NOCTURNE</h2>
+        <p>Panel de Administracion</p>
+
+        {/* Mensaje de error, solo se muestra si existe un error */}
+        {error && <div className="login-error">{error}</div>}
 
         <div className="login-field">
           <label>Nombre del Administrador</label>
@@ -40,23 +53,24 @@ const Login = () => {
           {/* Input controlado por el estado nombre */}
           <input
             type="text"
+            placeholder="Ingresa Nombre"
             value={nombre}
             onChange={(e) => setNombre(e.target.value)}
-            placeholder="Ingrese su nombre"
-            required
           />
         </div>
 
         <div className="login-field">
-          <label>Sector de la Empresa</label>
+          <label>Sector</label>
 
           {/* Select controlado por el estado sector */}
           <select value={sector} onChange={(e) => setSector(e.target.value)}>
+            <option value="">Selecciona un sector</option>
             <option value="Soporte">Soporte</option>
             <option value="Gerencia">Gerencia</option>
           </select>
         </div>
 
+        {/* Boton para enviar el formulario */}
         <button className="login-btn" type="submit">
           Ingresar
         </button>
