@@ -7,7 +7,6 @@ const SelectField = ({
   return (
     <div className="login-field">
       <label>{label}</label>
-
       <select
         value={value}
         onChange={onChange}

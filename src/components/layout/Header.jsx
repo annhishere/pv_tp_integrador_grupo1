@@ -1,13 +1,10 @@
 import { useState } from "react";
-import { useAdmin } from "../../context/AdminContext";
 import { Navbar, Container, Offcanvas, Button } from "react-bootstrap";
-//import { AdminContext} from "../../context/AdminContext";
 
+import { useAdmin } from "../../context/AdminContext";
 import "../styles/Header.css";
 
 const Header = () => {
-
-  // Controla si el menú lateral está abierto o cerrado
   const [show, setShow] = useState(false);
 
   // Datos del administrador y función para cerrar sesión
@@ -16,7 +13,6 @@ const Header = () => {
 
   return (
     <>
-      {/* Barra superior transparente */}
       <Navbar
         fixed="top"
         expand={false}
@@ -28,18 +24,14 @@ const Header = () => {
           <Navbar.Brand className="brand">
             NOCTURNE
           </Navbar.Brand>
-
-          {/* Botón hamburguesa */}
           <Navbar.Toggle
             aria-controls="menu-lateral"
             className="custom-toggle"
             onClick={() => setShow(true)}
           />
-
         </Container>
       </Navbar>
 
-      {/* Menú lateral */}
       <Offcanvas
         id="menu-lateral"
         show={show}
@@ -47,7 +39,6 @@ const Header = () => {
         placement="end"
         className="custom-offcanvas"
       >
-
         <Offcanvas.Header
           closeButton
           closeVariant="white"
@@ -58,30 +49,20 @@ const Header = () => {
         </Offcanvas.Header>
 
         <Offcanvas.Body>
-
-          {/* Muestra los datos si existe una sesión */}
           {admin && (
             <div className="admin-info">
-
               <h4>{admin.nombre}</h4>
-
               <p>{admin.sector}</p>
-
             </div>
           )}
 
           <hr />
 
-          {/* Acá pueden agregarse más opciones después */}
           <div className="menu-links">
-
             <p>Dashboard</p>
-
             <p>Clientes</p>
-
           </div>
 
-          {/* Botón para cerrar sesión */}
           <Button
             variant="outline-light"
             className="w-100 mt-4"
@@ -89,9 +70,7 @@ const Header = () => {
           >
             Cerrar Sesión
           </Button>
-
         </Offcanvas.Body>
-
       </Offcanvas>
     </>
   );
