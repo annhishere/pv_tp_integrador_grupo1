@@ -1,0 +1,86 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  background-color: #0b0b0b !important;
+  color: white;
+  min-height: 100vh;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* posible paleta de colores root
+:root {
+
+  
+
+  --primary-color: #0d6efd;
+  --primary-hover: #0b5ed7;
+
+  --background-color: #0b0b0b;
+  --surface-color: #171717;
+  --glass-color: rgba(18, 18, 18, .55);
+
+  --overlay: rgba(0, 0, 0, .45);
+  --overlay-dark: rgba(0, 0, 0, .65);
+
+  --text-color: #ffffff;
+  --text-secondary: #d0d0d0;
+  --text-muted: #9f9f9f;
+
+  
+
+  --border-color: rgba(255,255,255,.12);
+  --border-card: #2b2b2b;
+
+
+
+  --radius-sm: 10px;
+  --radius-md: 18px;
+  --radius-lg: 30px;
+
+
+
+  --shadow-card: 0 20px 50px rgba(0,0,0,.45);
+  --shadow-primary: 0 15px 40px rgba(13,110,253,.25);
+
+
+
+  --space-sm: 10px;
+  --space-md: 15px;
+  --space-lg: 20px;
+  --space-xl: 25px;
+  --space-2xl: 35px;
+  --space-3xl: 45px;
+
+
+  --transition: .35s;
+
+}
+
+
+
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+html,
+body,
+#root{
+  width:100%;
+  min-height:100%;
+}
+
+body{
+  overflow-x:hidden;
+  background:var(--background-color);
+  color:var(--text-color);
+  font-family:"Segoe UI",sans-serif;
+}
+
+*/
