@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Navbar, Container, Offcanvas, Button } from "react-bootstrap";
-
+import { Navbar, Container, Offcanvas, Button, Nav } from "react-bootstrap";
 import { useAdmin } from "../../context/AdminContext";
+import { Link } from "react-router-dom";
 import "../styles/Header.css";
 
 const Header = () => {
@@ -60,7 +60,13 @@ const Header = () => {
 
           <div className="menu-links">
             <p>Dashboard</p>
-            <p>Clientes</p>
+            <Nav.Link
+              as={Link}
+              to="/clientes"
+              onClick={() => setShow(false)}
+            >
+              Clientes
+            </Nav.Link>
           </div>
 
           <Button
