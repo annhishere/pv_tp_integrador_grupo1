@@ -1,13 +1,4 @@
 .login-container {
-<<<<<<< HEAD
-  min-height: 100vh;
-  background-color: #111;
-  color: white;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-=======
   position: relative;
   min-height: 100vh;
   display: flex;
@@ -37,31 +28,10 @@
   width: 100%;
   display: flex;
   justify-content: center;
->>>>>>> origin/Juan_Arze
 }
 
 .login-form {
   width: 100%;
-<<<<<<< HEAD
-  max-width: 400px;
-  padding: 2rem;
-}
-
-.login-form h2 {
-  margin-bottom: 2rem;
-  font-weight: 300;
-  letter-spacing: 3px;
-}
-
-.login-field {
-  margin-bottom: 1.5rem;
-}
-
-.login-field label {
-  display: block;
-  margin-bottom: 0.5rem;
-  color: #999;
-=======
   max-width: 430px;
   padding: 45px;
   border-radius: 20px;
@@ -102,24 +72,11 @@
   color: #d0d0d0;
   margin-bottom: 8px;
   display: block;
->>>>>>> origin/Juan_Arze
 }
 
 .login-field input,
 .login-field select {
   width: 100%;
-<<<<<<< HEAD
-  padding: 0.8rem;
-
-  background: transparent;
-  color: white;
-
-  border: 1px solid white;
-}
-
-.login-field option {
-  color: rgb(255, 255, 255);
-=======
   padding: 14px;
   border-radius: 10px;
   background: rgba(255, 255, 255, 0.05);
@@ -132,32 +89,10 @@
   outline: none;
   border-color: #0d6efd;
   box-shadow: 0 0 18px rgba(13, 110, 253, 0.25);
->>>>>>> origin/Juan_Arze
 }
 
 .login-btn {
   width: 100%;
-<<<<<<< HEAD
-  padding: 0.8rem;
-
-  background: transparent;
-  color: white;
-
-  border: 1px solid white;
-  cursor: pointer;
-}
-
-.login-btn:hover {
-  background-color: white;
-  color: #111;
-}
-.login-error {
-  margin-bottom: 1rem;
-  padding: 0.8rem;
-
-  color: #ffb3b3;
-  border: 1px solid #ffb3b3;
-=======
   margin-top: 20px;
   padding: 14px;
   border: none;
@@ -196,5 +131,4 @@
 .login-field select option {
   background-color: #1b1b1b;
   color: white;
->>>>>>> origin/Juan_Arze
 }
