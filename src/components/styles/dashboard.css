@@ -1,40 +1,215 @@
+/* ================= RESET Y FONDO GLOBAL ================= */s
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  background-color: #0b0b0b !important;
+  color: #ffffff !important;
+  width: 100%;
+  min-height: 100vh;
+  overflow-x: hidden;
+}
+
+/* ================= HERO SECTION ================= */
 .hero-section {
-  height: 100vh;
   position: relative;
+  width: 100%;
+  height: 100vh;
   overflow: hidden;
 }
 
 .hero-video {
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   object-fit: cover;
+  z-index: 1;
 }
 
 .overlay {
   position: absolute;
   inset: 0;
-
-  background: rgba(0, 0, 0, 0.45);
+  background: rgba(0, 0, 0, 0.60);
+  z-index: 2;
 }
 
 .hero-content {
   position: absolute;
-
+  z-index: 3;
   top: 50%;
   left: 8%;
-
   transform: translateY(-50%);
-
   color: white;
-
-  z-index: 2;
 }
 
 .hero-content p {
   letter-spacing: 8px;
+  font-size: 18px;
+  color: #ddd;
+  font-weight: 400;
+  margin-bottom: 10px;
 }
 
 .hero-content h1 {
   font-size: clamp(4rem, 10vw, 8rem);
   font-weight: 200;
+  margin: 20px 0;
+}
+
+.hero-button {
+  margin-top: 25px;
+  padding: 12px 35px;
+  border-radius: 30px !important; /* Bordes redondeados */
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 14px;
+  
+  /* Fondo transparente y borde blanco */
+  background-color: transparent !important; 
+  border: 1px solid #ffffff !important;
+  color: #ffffff !important;
+  transition: 0.35s;
+}
+
+.hero-button:hover {
+  background-color: #ffffff !important;
+  color: #000000 !important; /* Letra negra al hacer hover */
+}
+
+/* ================= SERVICES SECTION ================= */
+.services-section {
+  background: #0b0b0b;
+  padding: 120px 0;
+}
+
+.section-title {
+  text-align: center;
+  margin-bottom: 70px;
+}
+
+.section-title h2 {
+  color: white;
+  font-size: 42px;
+  margin-bottom: 15px;
+}
+
+.section-title p {
+  color: #9e9e9e;
+  max-width: 650px;
+  margin: auto;
+}
+
+/* Usamos !important en la Card para que Bootstrap no la pinte de blanco */
+.card.service-card {
+  background: #151515 !important;
+  border: 1px solid #2c2c2c !important;
+  border-radius: 18px;
+  text-align: center;
+  color: white !important;
+  transition: 0.35s;
+  padding: 20px;
+  height: 100%;
+}
+
+.card.service-card:hover {
+  transform: translateY(-8px);
+  border-color: #0d6efd !important;
+  box-shadow: 0 15px 40px rgba(13, 110, 253, 0.25);
+}
+
+.service-icon {
+  font-size: 55px;
+  color: #0d6efd;
+  margin-bottom: 25px;
+}
+
+.service-card h4 {
+  color: white !important;
+  margin-bottom: 18px;
+}
+
+.service-card p {
+  color: #c2c2c2 !important;
+  margin-bottom: 25px;
+}
+
+.service-card .btn {
+  border-radius: 40px;
+  padding: 10px 28px;
+  margin-top: 15px;
+}
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 768px) {
+  .hero-content {
+    left: 25px;
+    right: 25px;
+  }
+  
+  .hero-content h1 {
+    font-size: 45px;
+  }
+  
+  .hero-content p {
+    font-size: 15px;
+    letter-spacing: 5px;
+  }
+  
+  .services-section {
+    padding: 80px 0;
+  }
+}
+
+/* ================= MENÚ HAMBURGUESA ================= */
+
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background-color: #0b0b0b !important;
+    padding: 20px !important;
+    border-radius: 10px;
+    border: 1px solid #2b2b2b;
+  }
+}
+
+/*  Si usa el menú lateral Offcanvas*/
+.offcanvas, 
+.offcanvas-header, 
+.offcanvas-body {
+  background-color: #0b0b0b !important;
+  color: #ffffff !important;
+}
+
+/* El título y cerrar del Offcanvas */
+.offcanvas-title {
+  color: #ffffff !important;
+}
+.btn-close {
+  filter: invert(1) grayscale(100%) brightness(200%) !important; /* Vuelve la X blanca */
+}
+
+/* Enlaces dentro del menú */
+.navbar-nav .nav-link {
+  color: #ffffff !important;
+}
+.navbar-nav .nav-link:hover {
+  color: #0d6efd !important;
+}
+
+/* El botón cuadradito de la hamburguesa (para que no tenga fondo blanco) */
+.navbar-toggler {
+  background-color: transparent !important;
+  border-color: rgba(255, 255, 255, 0.2) !important;
+  box-shadow: none !important;
+}
+
+/* Si el ícono de la hamburguesa se ve negro, lo invertimos a blanco */
+.navbar-light .navbar-toggler-icon,
+.navbar-toggler-icon {
+  filter: invert(1) grayscale(100%) brightness(200%) !important;
 }
