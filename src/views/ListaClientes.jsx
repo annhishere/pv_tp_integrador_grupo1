@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 
 // Importo componentes de Bootstrap para mostrar los clientes en tarjetas. JuanAr
-import { Card, Row, Col, Container } from "react-bootstrap";
+import { Alert, Card, Row, Col, Container, Spinner } from "react-bootstrap";
 
 const ListaClientes = () => {
 
@@ -11,18 +11,43 @@ const ListaClientes = () => {
     // Estado del buscador
     const [busqueda, setBusqueda] = useState("");
 
-    // Consumo principal de la API 
+    // Estado para controlar la carga de datos desde la API .MB-3
+    const [cargando, setCargando] = useState(true);
+
+    // Estado para guardar un posible error al consumir la API .MB-3
+    const [error, setError] = useState(null);
+
+    // Consumo principal de la API .MB-3
     const obtenerClientes = async () => {
 
-        const respuesta = await fetch("https://fakestoreapi.com/users");
+        try { //try se ejecuta si todo sale bien, catch se ejecuta si hay un error, finally se ejecuta siempre
 
-        const datos = await respuesta.json();
+            setCargando(true);
+            setError(null);
 
-        setClientes(datos);
+            const respuesta = await fetch("https://fakestoreapi.com/users");
+
+            if (!respuesta.ok) {
+                throw new Error(`Error ${respuesta.status}: no se pudo obtener la lista de clientes`);
+            }
+
+            const datos = await respuesta.json();
+
+            setClientes(datos);
+
+        } catch (error) {
+
+             setError(error.message);
+
+        } finally {
+
+            setCargando(false);
+
+        }
 
     };
 
-    // Se ejecuta una sola vez al cargar la pantalla
+    // Se ejecuta una sola vez al cargar la pantalla 
     useEffect(() => {
 
         obtenerClientes();
@@ -45,6 +70,27 @@ const ListaClientes = () => {
     });
 
     console.log(clientesFiltrados);
+
+    // Muestro un spinner mientras se cargan los clientes desde la API .MB-3
+    if (cargando) {
+        return (
+            <Container className="mt-4 text-center">
+                <Spinner animation="border" role="status" />
+                <p className="mt-3">Cargando clientes...</p>
+            </Container>
+        );
+    }
+
+    // Muestro un mensaje de error si falla el consumo de la API .MB-3
+    if (error) {
+        return (
+            <Container className="mt-4">
+                <Alert variant="danger">
+                    {error}
+                </Alert>
+            </Container>
+        );
+    }
 
     return (
 
