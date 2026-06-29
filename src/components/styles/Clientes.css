@@ -1,0 +1,21 @@
+/* S - Estilo de la barra de búsqueda */
+.search-bar{
+    max-width:600px;
+    margin:30px auto;
+    border-radius:12px;
+}
+
+.search-bar:focus{
+    box-shadow:none;
+    border:2px solid #0d6efd;
+}
+
+/* S - Ajustes responsivos para pantallas pequeñas */
+
+@media (max-width:768px){
+
+    .search-bar{
+        width:90%;
+    }
+
+}

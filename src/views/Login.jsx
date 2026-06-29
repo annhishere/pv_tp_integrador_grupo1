@@ -42,52 +42,9 @@ const Login = () => {
   };
 
   return (
-<<<<<<< HEAD
-    <FormContainer>
-      {/* Formulario de inicio de sesion */}
-      <form className="login-form" onSubmit={handleSubmit}>
-        <h2>NOCTURNE</h2>
-        <p>Panel de Administracion</p>
-=======
->>>>>>> vera_esteban
 
     <FormContainer>
 
-<<<<<<< HEAD
-        <InputField
-          label="Nombre del Administrador"
-          placeholder="Ingresa Nombre"
-          value={nombre}
-          onChange={(e) => setNombre(e.target.value)}
-        />
-
-        <SelectField
-          label="Sector"
-          value={sector}
-          onChange={(e) => setSector(e.target.value)}
-          options={[
-            {
-              value: "",
-              label: "Selecciona un sector",
-            },
-            {
-              value: "Soporte",
-              label: "Soporte",
-            },
-            {
-              value: "Gerencia",
-              label: "Gerencia",
-            },
-          ]}
-        />
-
-        {/* Boton para enviar el formulario */}
-        <button className="login-btn" type="submit">
-          Ingresar
-        </button>
-      </form>
-    </FormContainer>
-=======
       {/* Video de fondo */}
       <video
         autoPlay
@@ -163,8 +120,6 @@ const Login = () => {
       </div>
 
     </FormContainer>
-
->>>>>>> vera_esteban
   );
 
 };
