@@ -5,6 +5,8 @@ import { Alert, Card, Row, Col, Container, Spinner } from "react-bootstrap";
 
 import SearchBar from "../components/common/SearchBar";
 
+import videoClientes from "../assets/video/video2.mp4";
+
 import "../components/styles/Clientes.css";
 
 const ListaClientes = () => {
@@ -55,7 +57,7 @@ const ListaClientes = () => {
     useEffect(() => {
 
         obtenerClientes();
-
+ 
     }, []);
 
     // Filtrado de clientes según el término de búsqueda
@@ -97,15 +99,49 @@ const ListaClientes = () => {
     }
 
     return (
+        
+    <div className="clientes-page">
 
-        <div>
-            {/* S-Barra de búsqueda reutilizable */}
+        {/* S - Video de fondo */}
+        <video
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="clientes-video"
+        >
+            <source
+                src={videoClientes}
+                type="video/mp4"
+            />
+            Tu navegador no soporta videos.
+        </video>
+
+        {/* S - Capa oscura sobre el video */}
+        <div className="clientes-overlay"></div>
+
+        {/* S - Contenedor principal */}
+        <div className="clientes-content">
+
+            {/* S - Encabezado de la sección de clientes */}
+            <div className="clientes-header">
+
+                <h1 className="clientes-title">
+                    CLIENTES
+                </h1>
+
+                <p className="clientes-description">
+                    Administración de Clientes
+                </p>
+
+            </div>
+
+            {/* S - Barra de búsqueda reutilizable */}
             <SearchBar
                 placeholder="Buscar por apellido o ciudad..."
                 value={busqueda}
                 onChange={(e) => setBusqueda(e.target.value)}
             />
-
 
                     {/* Juan tabla xd*/}
             {/* Muestro la información de cada cliente utilizando Cards de Bootstrap. JuanAr */}
@@ -164,6 +200,9 @@ const ListaClientes = () => {
             </Container>
 
         </div>
+
+    </div>
+
     );
 
 };
