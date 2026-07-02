@@ -120,7 +120,6 @@ const Login = () => {
       </div>
 
     </FormContainer>
-
   );
 
 };

@@ -1,0 +1,36 @@
+.form-alta {
+    max-width: 700px;
+    margin: 60px auto;
+    padding: 35px;
+    background: var(--bg-card); 
+    backdrop-filter: var(--blur-card); 
+    border: 1px solid var(--border-card); 
+    border-radius: var(--radius-md);
+    box-shadow: var(--shadow-card);
+}
+
+.form-alta h3 {
+    color: var(--text-main); 
+    margin-bottom: 30px;
+    font-weight: 300;
+    letter-spacing: 3px;
+}
+
+.form-label {
+    color: var(--text-secondary); 
+}
+
+.form-control {
+    background: var(--bg-input);
+    border: 1px solid var(--border-input); 
+    color: var(--text-main); 
+    border-radius: var(--radius-sm);
+}
+
+.form-control:focus {
+    background: var(--bg-input);
+    color: var(--text-main);
+    border-color: var(--color-primary); 
+    outline: none; 
+    box-shadow: var(--shadow-focus); 
+}

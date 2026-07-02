@@ -1,7 +1,15 @@
 import { useEffect, useState } from "react";
 
 // Importo componentes de Bootstrap para mostrar los clientes en tarjetas. JuanAr
-import { Card, Row, Col, Container } from "react-bootstrap";
+import { Alert, Card, Row, Col, Container, Spinner } from "react-bootstrap";
+
+import SearchBar from "../components/common/SearchBar";
+
+import videoClientes from "../assets/video/video2.mp4";
+
+import FormAltaCliente from "../components/common/FormAltaCliente";
+
+import "../components/styles/Clientes.css";
 
 const ListaClientes = () => {
 
@@ -11,14 +19,39 @@ const ListaClientes = () => {
     // Estado del buscador
     const [busqueda, setBusqueda] = useState("");
 
-    // Consumo principal de la API 
+    // Estado para controlar la carga de datos desde la API .MB-3
+    const [cargando, setCargando] = useState(true);
+
+    // Estado para guardar un posible error al consumir la API .MB-3
+    const [error, setError] = useState(null);
+
+    // Consumo principal de la API .MB-3
     const obtenerClientes = async () => {
 
-        const respuesta = await fetch("https://fakestoreapi.com/users");
+        try { //try se ejecuta si todo sale bien, catch se ejecuta si hay un error, finally se ejecuta siempre
 
-        const datos = await respuesta.json();
+            setCargando(true);
+            setError(null);
 
-        setClientes(datos);
+            const respuesta = await fetch("https://fakestoreapi.com/users");
+
+            if (!respuesta.ok) {
+                throw new Error(`Error ${respuesta.status}: no se pudo obtener la lista de clientes`);
+            }
+
+            const datos = await respuesta.json();
+
+            setClientes(datos);
+
+        } catch (error) {
+
+            setError(error.message);
+
+        } finally {
+
+            setCargando(false);
+
+        }
 
     };
 
@@ -28,6 +61,19 @@ const ListaClientes = () => {
         obtenerClientes();
 
     }, []);
+
+    // Agrega un nuevo cliente al estado local (Módulo C, Ariana)
+    const agregarCliente = (clienteNuevo) => {
+
+        setClientes((clientesAnteriores) => [
+
+            ...clientesAnteriores,
+
+            clienteNuevo
+
+        ]);
+
+    };
 
     // Filtrado de clientes según el término de búsqueda
     const clientesFiltrados = clientes.filter((cliente) => {
@@ -46,77 +92,136 @@ const ListaClientes = () => {
 
     console.log(clientesFiltrados);
 
+    // Muestro un spinner mientras se cargan los clientes desde la API .MB-3
+    if (cargando) {
+        return (
+            <Container className="mt-4 text-center">
+                <Spinner animation="border" role="status" />
+                <p className="mt-3">Cargando clientes...</p>
+            </Container>
+        );
+    }
+
+    // Muestro un mensaje de error si falla el consumo de la API .MB-3
+    if (error) {
+        return (
+            <Container className="mt-4">
+                <Alert variant="danger">
+                    {error}
+                </Alert>
+            </Container>
+        );
+    }
+
     return (
 
-        <div>
+        <div className="clientes-page">
 
-            <input
-                type="text"
-                placeholder="Buscar por apellido o ciudad..."
-                value={busqueda}
-                onChange={(e) => setBusqueda(e.target.value)}
-            />
+            {/* S - Video de fondo */}
+            <video
+                autoPlay
+                muted
+                loop
+                playsInline
+                className="clientes-video"
+            >
+                <source
+                    src={videoClientes}
+                    type="video/mp4"
+                />
+                Tu navegador no soporta videos.
+            </video>
 
-                    {/* Juan tabla xd*/}
-{/* Muestro la información de cada cliente utilizando Cards de Bootstrap. JuanAr */}
-<Container className="mt-4">
+            {/* S - Capa oscura sobre el video */}
+            <div className="clientes-overlay"></div>
 
-    <Row>
+            {/* S - Contenedor principal */}
+            <div className="clientes-content">
 
-        {/* Recorro la lista de clientes filtrados para crear una Card por cada uno. JuanAr */}
-        {clientesFiltrados.map((cliente) => (
+                {/* S - Encabezado de la sección de clientes */}
+                <div className="clientes-header">
 
-            <Col md={6} lg={4} className="mb-4" key={cliente.id}>
+                    <h1 className="clientes-title">
+                        CLIENTES
+                    </h1>
 
-                <Card className="shadow h-100">
+                    <p className="clientes-description">
+                        Administración de Clientes
+                    </p>
 
-                    <Card.Body>
+                </div>
 
-                        {/* Muestro el identificador del cliente. JuanAr */}
-                        <Card.Title>
-                            Cliente #{cliente.id}
-                        </Card.Title>
+                {/* S - Barra de búsqueda reutilizable */}
+                <SearchBar
+                    placeholder="Buscar por apellido o ciudad..."
+                    value={busqueda}
+                    onChange={(e) => setBusqueda(e.target.value)}
+                />
 
-                        {/* Muestro el nombre completo del cliente. JuanAr */}
-                        <Card.Text>
-                            <strong>Nombre:</strong>{" "}
-                            {cliente.name.firstname} {cliente.name.lastname}
-                        </Card.Text>
+                {/* Formulario para crear nuevos clientes (Módulo C, Ariana) */}
+                <FormAltaCliente agregarCliente={agregarCliente} />
 
-                        {/* Muestro el correo electrónico del cliente. JuanAr */}
-                        <Card.Text>
-                            <strong>Email:</strong>{" "}
-                            {cliente.email}
-                        </Card.Text>
+                {/* Muestro la información de cada cliente utilizando Cards de Bootstrap. JuanAr */}
+                <Container className="mt-4">
 
-                        {/* Muestro el teléfono del cliente. JuanAr */}
-                        <Card.Text>
-                            <strong>Teléfono:</strong>{" "}
-                            {cliente.phone}
-                        </Card.Text>
+                    <Row>
 
-                        {/* Muestro la ciudad del cliente. JuanAr */}
-                        <Card.Text>
-                            <strong>Ciudad:</strong>{" "}
-                            {cliente.address.city}
-                        </Card.Text>
+                        {/* Recorro la lista de clientes filtrados para crear una Card por cada uno. JuanAr */}
+                        {clientesFiltrados.map((cliente) => (
 
-                    </Card.Body>
+                            <Col md={6} lg={4} className="mb-4" key={cliente.id}>
 
-                </Card>
+                                <Card className="shadow h-100">
 
-            </Col>
+                                    <Card.Body>
 
-        ))}
+                                        {/* Muestro el identificador del cliente. JuanAr */}
+                                        <Card.Title>
+                                            Cliente #{cliente.id}
+                                        </Card.Title>
 
-    </Row>
+                                        {/* Muestro el nombre completo del cliente. JuanAr */}
+                                        <Card.Text>
+                                            <strong>Nombre:</strong>{" "}
+                                            {cliente.name.firstname} {cliente.name.lastname}
+                                        </Card.Text>
 
-</Container>
+                                        {/* Muestro el correo electrónico del cliente. JuanAr */}
+                                        <Card.Text>
+                                            <strong>Email:</strong>{" "}
+                                            {cliente.email}
+                                        </Card.Text>
 
-</div>
+                                        {/* Muestro el teléfono del cliente. JuanAr */}
+                                        <Card.Text>
+                                            <strong>Teléfono:</strong>{" "}
+                                            {cliente.phone}
+                                        </Card.Text>
+
+                                        {/* Muestro la ciudad del cliente. JuanAr */}
+                                        <Card.Text>
+                                            <strong>Ciudad:</strong>{" "}
+                                            {cliente.address.city}
+                                        </Card.Text>
+
+                                    </Card.Body>
+
+                                </Card>
+
+                            </Col>
+
+                        ))}
+
+                    </Row>
+
+                </Container>
+
+            </div>
+
+        </div>
+
     );
 
 };
-
 
 export default ListaClientes;

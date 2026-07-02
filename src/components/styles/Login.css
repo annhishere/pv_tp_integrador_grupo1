@@ -5,7 +5,7 @@
   justify-content: center;
   align-items: center;
   overflow: hidden;
-  background: #000;
+  background: var(--bg-base);
 }
 
 .login-video {
@@ -19,7 +19,7 @@
 .login-overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
+  background: var(--bg-overlay);
 }
 
 .login-card {
@@ -34,23 +34,23 @@
   width: 100%;
   max-width: 430px;
   padding: 45px;
-  border-radius: 20px;
-  background: rgba(18, 18, 18, 0.55);
-  backdrop-filter: blur(18px);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.45);
+  border-radius: var(--radius-md);
+  background: var(--bg-card);
+  backdrop-filter: var(--blur-card);
+  border: 1px solid var(--border-card);
+  box-shadow: var(--shadow-card);
 }
 
 .login-subtitle {
   display: block;
   text-align: center;
   letter-spacing: 6px;
-  color: #d0d0d0;
+  color: var(--text-secondary);
   margin-bottom: 10px;
 }
 
 .login-form h2 {
-  color: white;
+  color: var(--text-main);
   text-align: center;
   font-size: 44px;
   letter-spacing: 8px;
@@ -59,7 +59,7 @@
 }
 
 .login-form p {
-  color: #9f9f9f;
+  color: var(--text-muted);
   text-align: center;
   margin-bottom: 35px;
 }
@@ -69,7 +69,7 @@
 }
 
 .login-field label {
-  color: #d0d0d0;
+  color: var(--text-secondary);
   margin-bottom: 8px;
   display: block;
 }
@@ -78,17 +78,17 @@
 .login-field select {
   width: 100%;
   padding: 14px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 255, 255, 0.12);
-  color: white;
+  border-radius: var(--radius-sm);
+  background: var(--bg-input);
+  border: 1px solid var(--border-input);
+  color: var(--text-main);
 }
 
 .login-field input:focus,
 .login-field select:focus {
   outline: none;
-  border-color: #0d6efd;
-  box-shadow: 0 0 18px rgba(13, 110, 253, 0.25);
+  border-color: var(--color-primary);
+  box-shadow: var(--shadow-focus);
 }
 
 .login-btn {
@@ -96,39 +96,36 @@
   margin-top: 20px;
   padding: 14px;
   border: none;
-  border-radius: 40px;
-  background: #0d6efd;
-  color: white;
-  transition: 0.3s;
+  border-radius: var(--radius-pill);
+  background: var(--color-primary);
+  color: var(--text-main);
+  transition: var(--transition-base);
 }
 
 .login-btn:hover {
-  background: #0b5ed7;
+  background: var(--color-primary-hover);
   transform: translateY(-3px);
 }
 
 .login-error {
   margin-bottom: 20px;
   padding: 12px;
-  border-radius: 10px;
-  color: #ffb8b8;
-  background: rgba(255, 0, 0, 0.08);
-  border: 1px solid rgba(255, 0, 0, 0.3);
+  border-radius: var(--radius-sm);
+  color: var(--color-error-text);
+  background: var(--color-error-bg);
+  border: 1px solid var(--color-error-border);
 }
 
 .login-field select {
-  width: 100%;
-  padding: 14px;
-  background-color: #1b1b1b;
-  color: white;
-  border: 1px solid rgba(255, 255, 255, 0.15);
-  border-radius: 10px;
+  /* Si ya definiste propiedades arriba, estas complementan o sobrescriben para select */
+  background-color: var(--bg-input-solid);
+  border: 1px solid var(--border-input-solid);
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
 }
 
 .login-field select option {
-  background-color: #1b1b1b;
-  color: white;
+  background-color: var(--bg-input-solid);
+  color: var(--text-main);
 }
