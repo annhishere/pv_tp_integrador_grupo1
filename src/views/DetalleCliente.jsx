@@ -73,6 +73,13 @@ const DetalleCliente = () => {
             </Container>
         );
     }
+    //DESESTRUCTURACION
+    //objeto anidado name. Jonatan
+    const {lastname, firstname} = cliente.name;
+    //objeto anidado address. Jonatan
+    const {street, number, zipcode, city} = cliente.address;
+    //datos. Jonatan
+    const {username, password, email, phone} = cliente;  
 
     return (
         <Container className="mt-5">
@@ -80,27 +87,45 @@ const DetalleCliente = () => {
                 <Card.Body>
                     {/* Muestro el título de la ficha completa del cliente. JuanAr */}
                     <Card.Title>
-                        Ficha completa del cliente #{cliente.id}
+                        Ficha completa del cliente #{id}
                     </Card.Title>
 
                     {/* Muestro datos básicos obtenidos desde el segundo fetch. JuanAr */}
                     <Card.Text>
                         <strong>Nombre:</strong>{" "}
-                        {cliente.name.firstname} {cliente.name.lastname}
+                        {firstname} {lastname}
                     </Card.Text>
 
                     <Card.Text>
-                        <strong>Email:</strong> {cliente.email}
+                        <strong>Email:</strong> {email}
                     </Card.Text>
 
                     <Card.Text>
-                        <strong>Teléfono:</strong> {cliente.phone}
+                        <strong>Teléfono:</strong> {phone}
                     </Card.Text>
 
-                    <Card.Text>
-                        <strong>Ciudad:</strong> {cliente.address.city}
-                    </Card.Text>
-
+                    {/* Muestra el objeto anidado address. Jonatan */}
+                    <div className="cliente-direccion">
+                        <Card.Text>
+                            <strong>Direccion:</strong> {street} {number}
+                        </Card.Text>
+                        <Card.Text>
+                            <strong>Código Postal:</strong> {zipcode}
+                        </Card.Text>
+                        <Card.Text>
+                            <strong>Ciudad:</strong> {city}
+                        </Card.Text>
+                    </div>
+                    
+                    {/* Muestra las credenciales. Jonatan */}
+                    <div className="cliente-credenciales">
+                        <Card.Text>
+                            <strong>Usuario:</strong> {username}
+                        </Card.Text>
+                        <Card.Text>
+                            <strong>Contraseña:</strong> {password}
+                        </Card.Text>
+                    </div>
                     {/* Botón para volver a la lista de clientes. JuanAr */}
                     <Button as={Link} to="/clientes" variant="secondary">
                         Volver a clientes
