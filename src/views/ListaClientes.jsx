@@ -1,18 +1,18 @@
 import { useEffect, useState } from "react";
 
 // Importo componentes de Bootstrap para mostrar los clientes en tarjetas. JuanAr
-import { Alert, Card, Row, Col, Container, Spinner } from "react-bootstrap";
+import { Alert, Card, Row, Col, Container, Spinner,Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import SearchBar from "../components/common/SearchBar";
 
-<<<<<<< HEAD
-=======
 import videoClientes from "../assets/video/video2.mp4";
 
 import FormAltaCliente from "../components/common/FormAltaCliente";
 
->>>>>>> origin/jonatan_zarate
 import "../components/styles/Clientes.css";
+
+
 
 const ListaClientes = () => {
 
@@ -48,11 +48,7 @@ const ListaClientes = () => {
 
         } catch (error) {
 
-<<<<<<< HEAD
-             setError(error.message);
-=======
             setError(error.message);
->>>>>>> origin/jonatan_zarate
 
         } finally {
 
@@ -122,74 +118,6 @@ const ListaClientes = () => {
 
     return (
 
-<<<<<<< HEAD
-        <div>
-            {/* S-Barra de búsqueda reutilizable */}
-            <SearchBar
-                placeholder="Buscar por apellido o ciudad..."
-                value={busqueda}
-                onChange={(e) => setBusqueda(e.target.value)}
-            />
-
-
-                    {/* Juan tabla xd*/}
-            {/* Muestro la información de cada cliente utilizando Cards de Bootstrap. JuanAr */}
-            <Container className="mt-4">
-
-                <Row>
-
-                    {/* Recorro la lista de clientes filtrados para crear una Card por cada uno. JuanAr */}
-                    {clientesFiltrados.map((cliente) => (
-
-                        <Col md={6} lg={4} className="mb-4" key={cliente.id}>
-
-                            <Card className="shadow h-100">
-
-                                <Card.Body>
-
-                                    {/* Muestro el identificador del cliente. JuanAr */}
-                                    <Card.Title>
-                                        Cliente #{cliente.id}
-                                    </Card.Title>
-
-                                    {/* Muestro el nombre completo del cliente. JuanAr */}
-                                    <Card.Text>
-                                        <strong>Nombre:</strong>{" "}
-                                        {cliente.name.firstname} {cliente.name.lastname}
-                                    </Card.Text>
-
-                                    {/* Muestro el correo electrónico del cliente. JuanAr */}
-                                    <Card.Text>
-                                        <strong>Email:</strong>{" "}
-                                        {cliente.email}
-                                    </Card.Text>
-
-                                    {/* Muestro el teléfono del cliente. JuanAr */}
-                                    <Card.Text>
-                                        <strong>Teléfono:</strong>{" "}
-                                        {cliente.phone}
-                                    </Card.Text>
-
-                                    {/* Muestro la ciudad del cliente. JuanAr */}
-                                    <Card.Text>
-                                        <strong>Ciudad:</strong>{" "}
-                                        {cliente.address.city}
-                                    </Card.Text>
-
-                                </Card.Body>
-
-                            </Card>
-
-                        </Col>
-
-                    ))}
-
-                </Row>
-
-            </Container>
-
-        </div>
-=======
         <div className="clientes-page">
 
             {/* S - Video de fondo */}
@@ -279,6 +207,14 @@ const ListaClientes = () => {
                                             {cliente.address.city}
                                         </Card.Text>
 
+                                        {/* Botón que navega hacia la ficha completa del cliente usando su ID. JuanAr */}
+                                        <Button
+                                            as={Link}
+                                            to={`/clientes/${cliente.id}`}
+                                            variant="outline-light"
+                                        >
+                                            Ver Ficha Completa
+                                        </Button>
                                     </Card.Body>
 
                                 </Card>
@@ -295,7 +231,6 @@ const ListaClientes = () => {
 
         </div>
 
->>>>>>> origin/jonatan_zarate
     );
 
 };
