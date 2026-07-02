@@ -1,7 +1,8 @@
 import { useEffect, useState } from "react";
 
 // Importo componentes de Bootstrap para mostrar los clientes en tarjetas. JuanAr
-import { Alert, Card, Row, Col, Container, Spinner } from "react-bootstrap";
+import { Alert, Card, Row, Col, Container, Spinner,Button } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 import SearchBar from "../components/common/SearchBar";
 
@@ -10,6 +11,8 @@ import videoClientes from "../assets/video/video2.mp4";
 import FormAltaCliente from "../components/common/FormAltaCliente";
 
 import "../components/styles/Clientes.css";
+
+
 
 const ListaClientes = () => {
 
@@ -55,7 +58,7 @@ const ListaClientes = () => {
 
     };
 
-    // Se ejecuta una sola vez al cargar la pantalla
+    // Se ejecuta una sola vez al cargar la pantalla 
     useEffect(() => {
 
         obtenerClientes();
@@ -204,6 +207,14 @@ const ListaClientes = () => {
                                             {cliente.address.city}
                                         </Card.Text>
 
+                                        {/* Botón que navega hacia la ficha completa del cliente usando su ID. JuanAr */}
+                                        <Button
+                                            as={Link}
+                                            to={`/clientes/${cliente.id}`}
+                                            variant="outline-light"
+                                        >
+                                            Ver Ficha Completa
+                                        </Button>
                                     </Card.Body>
 
                                 </Card>

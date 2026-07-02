@@ -6,6 +6,9 @@ import Login from "./views/Login";
 import ListaClientes from './views/ListaClientes';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./components/styles/global.css";
+import { Link } from "react-router-dom"; // Importo Link para navegar a la ficha completa de cada cliente desde la lista. JuanAr
+import DetalleCliente from "./views/DetalleCliente"; //Importo la vista de detalle del cliente. JuanAr
+
 
 const App = () => {
   return (
@@ -27,6 +30,15 @@ const App = () => {
           <RutaProtegida>
             <ListaClientes />
           </RutaProtegida>
+        }
+      />
+            {/* Ruta dinámica para mostrar la ficha completa de un cliente por ID. JuanAr */}
+      <Route
+        path="/clientes/:id"
+        element={
+        <RutaProtegida>
+            <DetalleCliente />
+        </RutaProtegida>
         }
       />
 
