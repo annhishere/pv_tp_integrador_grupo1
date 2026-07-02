@@ -4,7 +4,7 @@
 }
 
 .brand {
-  color: white !important;
+  color: var(--text-main) !important;
   font-size: 1.4rem;
   letter-spacing: 6px;
   font-weight: 300;
@@ -21,7 +21,7 @@
 
 .custom-offcanvas {
   background-color: #111;
-  color: white;
+  color: var(--text-main);
 }
 
 .admin-info {
