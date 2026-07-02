@@ -12,75 +12,43 @@ html, body, #root {
   overflow-x: hidden;
 }
 
-/* posible paleta de colores root
 :root {
-
+  /* Paleta de Colores */
+  /* Colores Principales / Acentos */
+  --color-primary: #0d6efd;
+  --color-primary-hover: #0b5ed7;
   
-
-  --primary-color: #0d6efd;
-  --primary-hover: #0b5ed7;
-
-  --background-color: #0b0b0b;
-  --surface-color: #171717;
-  --glass-color: rgba(18, 18, 18, .55);
-
-  --overlay: rgba(0, 0, 0, .45);
-  --overlay-dark: rgba(0, 0, 0, .65);
-
-  --text-color: #ffffff;
+  /* Fondos (Backgrounds) */
+  --bg-base: #000000;
+  --bg-overlay: rgba(0, 0, 0, 0.65);
+  --bg-card: rgba(18, 18, 18, 0.55);
+  --bg-input: rgba(255, 255, 255, 0.05);
+  --bg-input-solid: #1b1b1b;
+  
+  /* Textos */
+  --text-main: #ffffff;
   --text-secondary: #d0d0d0;
   --text-muted: #9f9f9f;
 
-  
+  /* Bordes */
+  --border-card: rgba(255, 255, 255, 0.08);
+  --border-input: rgba(255, 255, 255, 0.12);
+  --border-input-solid: rgba(255, 255, 255, 0.15);
 
-  --border-color: rgba(255,255,255,.12);
-  --border-card: #2b2b2b;
+  /* Estados y Alertas (Error) */
+  --color-error-bg: rgba(255, 0, 0, 0.08);
+  --color-error-text: #ffb8b8;
+  --color-error-border: rgba(255, 0, 0, 0.3);
 
+  /* Efectos y Sombras */
+  --shadow-card: 0 20px 50px rgba(0, 0, 0, 0.45);
+  --shadow-focus: 0 0 18px rgba(13, 110, 253, 0.25);
+  --blur-card: blur(18px);
 
-
+  /*Estructura y Animaciones*/
   --radius-sm: 10px;
-  --radius-md: 18px;
-  --radius-lg: 30px;
-
-
-
-  --shadow-card: 0 20px 50px rgba(0,0,0,.45);
-  --shadow-primary: 0 15px 40px rgba(13,110,253,.25);
-
-
-
-  --space-sm: 10px;
-  --space-md: 15px;
-  --space-lg: 20px;
-  --space-xl: 25px;
-  --space-2xl: 35px;
-  --space-3xl: 45px;
-
-
-  --transition: .35s;
-
+  --radius-md: 20px;
+  --radius-pill: 40px;
+  --transition-base: 0.3s;
+  --transition-hover:0.35s;
 }
-
-
-
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-}
-
-html,
-body,
-#root{
-  width:100%;
-  min-height:100%;
-}
-
-body{
-  overflow-x:hidden;
-  background:var(--background-color);
-  color:var(--text-color);
-  font-family:"Segoe UI",sans-serif;
-}
-
-*/

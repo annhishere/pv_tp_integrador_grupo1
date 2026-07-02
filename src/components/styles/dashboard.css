@@ -5,14 +5,6 @@
   box-sizing: border-box;
 }
 
-html, body, #root {
-  background-color: #0b0b0b !important;
-  color: #ffffff !important;
-  width: 100%;
-  min-height: 100vh;
-  overflow-x: hidden;
-}
-
 /* ================= HERO SECTION ================= */
 .hero-section {
   position: relative;
@@ -34,7 +26,7 @@ html, body, #root {
 .overlay {
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.60);
+  background: var(--bg-overlay);
   z-index: 2;
 }
 
@@ -111,20 +103,20 @@ html, body, #root {
   border-radius: 18px;
   text-align: center;
   color: white !important;
-  transition: 0.35s;
+  transition: var(--transition-hover);
   padding: 20px;
   height: 100%;
 }
 
 .card.service-card:hover {
   transform: translateY(-8px);
-  border-color: #0d6efd !important;
+  border-color: var(--color-primary) !important;
   box-shadow: 0 15px 40px rgba(13, 110, 253, 0.25);
 }
 
 .service-icon {
   font-size: 55px;
-  color: #0d6efd;
+  color: var(--color-primary);
   margin-bottom: 25px;
 }
 
@@ -195,10 +187,10 @@ html, body, #root {
 
 /* Enlaces dentro del menú */
 .navbar-nav .nav-link {
-  color: #ffffff !important;
+  color: var(--text-main) !important;
 }
 .navbar-nav .nav-link:hover {
-  color: #0d6efd !important;
+  color: var(--color-primary) !important;
 }
 
 /* El botón cuadradito de la hamburguesa (para que no tenga fondo blanco) */
